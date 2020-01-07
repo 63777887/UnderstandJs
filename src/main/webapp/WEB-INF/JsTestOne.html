@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var str="<table style='width: 800px;height: 600px;'>";
+        var count=1
+            for(var i=0;i<3;i++){
+                str+="<tr><br>";
+                for (var j=0;j<3;j++){
+                    var s=' style=background-image: url("+"../img/"+count+".jpg"+"))';
+
+                    str=str+'<td style="background-image: url(../img/'+count+'.jpg);background-position: center"></td>'
+                    count++;
+                }
+                str+="</tr><br>"
+            };
+            str+="</table>";
+            document.write(str);
+
+
+
+
+        // var num=prompt("请输入行数","0");
+        // var tab="<table style='width: 800px;text-align: center;border-collapse: collapse;'>";
+        // tab+="<thead>" +
+        //     "<tr>" +
+        //     "<td>产品编号</td>" +
+        //     "<td>产品名称</td>" +
+        //     "<td>生产日期</td>" +
+        //     "<td>生产地</td>" +
+        //     "<td>委托商</td></tr>" +
+        //     "</thead>";
+        // for (var i=0;i<num;i++){
+        //     tab+="<tbody>" +
+        //         "<tr>";
+        //     for (var j=0;j<5;j++){
+        //         tab+="<td style='text-align: center;border: 1px solid black;height: 20px'></td>"
+        //     }
+        //     tab+="</tr></tbody>"
+        // }
+        // tab+="</table>"
+        // document.write(tab);
+
+    </script>
+</head>
+<y>
+
+</body>
+</html>

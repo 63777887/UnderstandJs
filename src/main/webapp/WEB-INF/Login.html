@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="icon" href="../img/icon.png">
+    <script type="text/javascript" src="jquery.js"></script>
+    <style>
+
+        .button{
+            width: 120px;
+            height: 53px;
+            line-height: 40px;
+            color: #fff;
+            text-align: center;
+            float: right;
+            margin-top: 50px;
+            background: #94086d;
+            border-radius: 8px;
+            font-size: 21px;
+            margin-right: 110px;
+            cursor: pointer;
+        }
+        .loginBatton{
+            width: 470px;
+            height: 70px;
+            margin-top: 60px;
+            margin-left: 35%;
+            background-color: rgb(47,106,73);
+            font-size: 30px;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+        }
+        #logoDiv{
+            width: 100%;
+            height: 160px;
+            border-bottom: 1px solid rgb(235,235,235);
+        }
+        #logo{
+            background: url(../img/logo.png) no-repeat;
+            background-size: contain;
+            width: 284px;
+            height: 106px;
+            float: left;
+            margin: 11px 0 0 111px;
+            cursor: pointer;
+        }
+        #welcomeLogin{
+            font-size: 55px;
+            line-height: 67px;
+            font-weight: 700;
+            color: #4a4a4a;
+            padding-top: 111px;
+            padding-left: 43%;
+            margin: auto;
+        }
+        .loginInput{
+            width: 450px;
+            height: 70px;
+            margin-top: 40px;
+            margin-left: 35%;
+            padding-left: 20px;
+            font-size: 23px!important;
+            color: rgb(156,157,158);
+            border-radius: 4px;
+            border: 1px solid rgb(156,157,158);
+        }
+        .forgetPassword{
+            width: 450px;
+            height: 70px;
+            margin-top: 50px;
+            margin-left: 35%;
+            padding-left: 20px;
+            text-align: center;
+            color: dodgerblue;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<div style="    margin: 0 auto;
+    padding-top: 20px;
+    position: relative;">
+<div id="logoDiv"><div id="logo"></div>
+    <button class="button">注册</button>
+</div>
+    <div>
+            <p id="welcomeLogin">欢迎登陆</p>
+    </div>
+    <form method="get" autocomplete="on">
+    <input class="loginInput" type="text" placeholder="手机号码" autocomplete="on">
+    <input class="loginInput" type="password" placeholder="输入密码">
+    <button class="loginBatton">立即登录</button>
+    <div class="forgetPassword">忘记密码？</div>
+    </form>
+</div>
+</body>
+<script>
+$(".button").click(function () {
+    window.location="Register.html";
+})
+$(".forgetPassword").click(function () {
+    window.location="ResetPassword.html";
+})
+</script>
+</html>

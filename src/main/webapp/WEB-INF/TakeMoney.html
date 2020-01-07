@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+        function login() {
+            for (var i = 0; i < 3; i++) {
+                var password = prompt("请输入密码");
+                if (password != 111111) {
+                    alert("密码错误，请重新输入，您还有" + (2 - i) + "次机会");
+                    continue;
+                } else {
+                    alert("登陆成功。")
+                    return true;
+                }
+            }
+            alert("密码错误，请取卡")
+            return false;
+        }
+
+
+        if (login()) {
+            while (true) {
+                var money;
+                var num = prompt("请输入0到6中任意数字选择对应钱数：0  手动输入金额,1  100元, 2  300元,3  500元, 4  1000元, 5  3000元, 6  5000元");
+                if (num == 0) {
+                    var temp = prompt("请输入金额,请输入100的倍数，最低100，最高1000");
+                    if (temp >= 100 && temp <= 1000 && temp % 100 == 0) {
+                        money = temp;
+                    } else {
+                        var t = prompt("输入错误，是否选择 Y/N")
+                        if (t == "Y") {
+                            continue;
+                        } else {
+                            alert("交易取消，请取卡！");
+                            break;
+                        }
+                    }
+                } else if (num == 1) {
+                    money = 100;
+                } else if (num == 2) {
+                    money = 300;
+                } else if (num == 3) {
+                    money = 500;
+                } else if (num == 4) {
+                    money = 1000;
+                } else if (num == 5) {
+                    money = 3000;
+                } else if (num == 6) {
+                    money = 5000;
+                } else {
+                    var bool = prompt("输入错误，是否选择 Y/N")
+                    if (bool == "Y") {
+                        continue;
+                    } else {
+                        alert("交易取消，请取卡！");
+                        break;
+                    }
+                }
+                alert("取出了"+money+"元");
+                var bool = prompt("取款完成，是否继续Y/N");
+                if (bool == "Y") {
+                    continue;
+                } else {
+                    alert("交易取消，请取卡！");
+                    break;
+                }
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

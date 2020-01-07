@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<style>
+    .register-container {
+        margin: 0 auto;
+        padding-top: 20px;
+        position: relative;
+    }
+
+    .logo {
+        background: url(../../../img/logo.png) no-repeat;
+        background-size: contain;
+        width: 234px;
+        height: 86px;
+        float: left;
+        margin: 11px 0 0 91px;
+    }
+
+    button {
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .login {
+        width: 96px;
+        height: 40px;
+        line-height: 40px;
+        color: #ffffff;
+        text-align: center;
+        float: right;
+        margin-top: 30px;
+        background: #94086d;
+        border-radius: 4px;
+        font-size: 18px;
+        margin-right: 90px;
+    }
+
+    .title-container {
+        margin-top: 30px;
+        border-top: 1px solid #ededed;
+    }
+
+    .title {
+        font-size: 48px;
+        line-height: 67px;
+        font-weight: 700;
+        color: #4a4a4a;
+        text-align: center;
+    }
+
+    .el-input {
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .el-input__inner {
+        padding: 0px 15px;
+        line-height: 36px;
+        height: 55px;
+        font-size: 18px;
+        border-radius: 4px;
+        width: 380px;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        margin-left: 20%;
+    }
+
+    .el-input__inner2 {
+        padding: 0px 15px;
+        line-height: 36px;
+        height: 55px;
+        font-size: 18px;
+        border-radius: 4px;
+        width: 380px;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        margin-right: 20%;
+        float: right;
+        transform: translate(0, -187px);
+    }
+
+    .el-input_getCode {
+        padding: 0px 15px;
+        line-height: 36px;
+        height: 55px;
+        font-size: 18px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        width: 280px;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        float: right;
+        transform: translate(311px, -125px);
+    }
+
+    .registerButton {
+        width: 410px;
+        height: 65px;
+        font-size: 24px;
+        background: #017a5a;
+        border: 0;
+        margin-left: 35%;
+        color: #ffffff;
+        border-radius: 4px;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    #userNameMsg {
+        font-size: 8px;
+        margin-left: 20%;
+        color: red;
+    }
+
+    #nameMsg {
+        font-size: 8px;
+        margin-top: 3px;
+        margin-left: 20%;
+        color: red;
+    }
+    #pwdMsg{
+        font-size: 8px;
+        color: red;
+        margin-right: 20%;
+        float: right;
+        transform: translate(176%,-128px);
+    }
+</style>
+<body>
+<div class="register-container"></div>
+<div class="logo"></div>
+<button class="login">登录</button>
+<div style="clear: both;"></div>
+<div class="title-container"></div>
+<p class="title">欢迎注册</p>
+<form action="Register.html" name="form1" method="post" onsubmit="return test()">
+    <div class="el-input">
+        <div>
+            <input type="text" autocomplete="on" name="username" placeholder="设置用户名" class="el-input__inner">
+        </div>
+        <div>
+            <span id="userNameMsg">*字母开头,5-16字节,允许字母数字下划线</span>
+        </div>
+        <div>
+            <input type="text" autocomplete="on" name="name" placeholder="输入姓名" class="el-input__inner" id="name">
+        </div>
+        <div>
+            <span id="nameMsg">*输入长度为2-20之间的汉字,少数民族中间使用·</span>
+        </div>
+    </div>
+    <div class="el-input">
+        <div>
+            <input type="password" autocomplete="on" name="password" placeholder="设置密码(6-12位字符)"
+                   class="el-input__inner2">
+        </div>
+        <div>
+            <span id="pwdMsg">*必须包含大小写字母和数字的组合,不能使用特殊字符,长度在6-12之间</span>
+        </div>
+        <div>
+            <input type="text" autocomplete="on" name="code" class="el-input_getCode">
+        </div>
+    </div>
+    <button type="submit" class="registerButton">
+        <span>立即注册</span>
+    </button>
+</form>
+
+
+<script type="text/javascript">
+    document.form1.username.onkeyup = function () {
+        //验证用户名(字母开头,允许5-16字节,允许字母数字下划线）
+        var regExp_userName = "^[a-zA-Z][a-zA-Z0-9_]{4,15}$";
+        if (this.value.match(regExp_userName) && this.value.length >= 4 && this.value.length) {
+            document.getElementById("userNameMsg").innerHTML = "输入正确";
+        } else if (this.value === "") {
+            document.getElementById("userNameMsg").innerHTML = "用户名不能为空";
+        } else {
+            document.getElementById("userNameMsg").innerHTML = "输入错误";
+        }
+    }
+
+    document.form1.name.onkeyup = function () {
+        //验证姓名(支持少数民族和生僻字,长度2-20之间,少数民族中间使用·)
+        var regExp_name = "^[\\\u4E00-\\\u9FA5\\\uf900-\\\ufa2d·s]{2,20}$";
+        if (this.value.match(regExp_name) && this.value.length >= 2 && this.value.length <= 20) {
+            document.getElementById("nameMsg").innerHTML = "输入正确";
+        } else if (this.value === "") {
+            document.getElementById("nameMsg").innerHTML = "姓名不能为空";
+        } else {
+            document.getElementById("nameMsg").innerHTML = "输入错误";
+        }
+    }
+
+    document.form1.password.onkeyup = function () {
+        var regExp_pwd = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,12}$";
+        if (this.value.match(regExp_pwd) && this.value.length >= 6 && this.value.length <= 12) {
+            document.getElementById("pwdMsg").innerHTML = "输入正确";
+        } else if (this.value === "") {
+            document.getElementById("pwdMsg").innerHTML = "密码不能为空";
+        } else {
+            document.getElementById("pwdMsg").innerHTML = "输入错误";
+        }
+    }
+
+    //注册按钮
+    function test() {
+        var str = "输入正确";
+        if (document.getElementById("nameMsg").innerHTML !== str) {
+            document.getElementById("nameMsg").innerHTML = "输入错误,输入长度为2-20之间的汉字,少数民族中间使用·";
+            document.form1.name.focus();
+            document.form1.name.value = "";
+            return false;
+        }
+
+        if (document.getElementById("userNameMsg").innerHTML !== str) {
+            document.getElementById("userNameMsg").innerHTML = "输入错误,字母开头,5-16字节,允许字母数字下划线";
+            document.form1.username.focus();
+            document.form1.username.value = "";
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
